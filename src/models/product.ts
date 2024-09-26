@@ -1,9 +1,10 @@
 import sequelize, { DataTypes } from "../database/connect";
+import { Brand, Category } from ".";
 
 const Product = sequelize.define("Product", {
   id: {
     type: DataTypes.INTEGER,
-    primaryKey: true, 
+    primaryKey: true,
     autoIncrement: true,
     allowNull: false,
   },
@@ -32,19 +33,19 @@ const Product = sequelize.define("Product", {
     type: DataTypes.INTEGER,
     allowNull: true,
     references: {
-        model: "",
-        key: "id",
-    }
+      model: Category,
+      key: "id",
+    },
   },
 
   BrandId: {
     type: DataTypes.INTEGER,
     allowNull: true,
     references: {
-        model: "",
-        key: "id",
-    }
+      model: Brand,
+      key: "id",
+    },
   },
 });
 
-export default Product
+export default Product;
